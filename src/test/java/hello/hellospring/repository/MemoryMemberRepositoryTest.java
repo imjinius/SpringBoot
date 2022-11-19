@@ -13,6 +13,11 @@ class MemoryMemberRepositoryTest {
 
     MemoryMemberRepository repository = new MemoryMemberRepository();
 
+
+    // 클래스 내의 모든 테스트 메서드들을 돌릴 수 있는데 이 때 순서대로 실행 되지 않을 수도 있다.
+    // 각 테스트는 순서에 영향이 없어야 한다. 즉, 서로 의존 관계가 없어야 한다.
+    // AfterEach는 각 테스트 케이스가 끝날때마다 실행되는 메서드를 뜻한다.
+    // 여기서는 이미 저장된 데이터가 영향을 주고 있어서 객체를 비우는 clearStore();라는 메서드를 레파지토리에 작성하였고 이를 실행.
     @AfterEach
     public void afterEach(){
         repository.clearStore();
