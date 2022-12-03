@@ -49,21 +49,5 @@ class MemberServiceIntegrationTest {
 
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
 
-
-//        try{
-//            memberService.join(member2);
-//            fail();
-//        } catch(IllegalStateException a){
-//            assertThat(a.getMessage()).isEqualTo("이미 존재하는 회원입니다.23423");
-//        }
-        //then
-    }
-
-    @Test
-    void findMembers() {
-    }
-
-    @Test
-    void findOne() {
     }
 }
