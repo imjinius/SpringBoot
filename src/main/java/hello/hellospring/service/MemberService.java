@@ -23,10 +23,12 @@ public class MemberService {
      * 회원 가입
      */
     public Long join(Member member){
-        // 같은 이름이 있는 중복 회원X
-        validateDuplicateMember(member); // 중복 회원 검증
-        memberRepository.save(member);
-        return member.getId();
+
+
+            // 같은 이름이 있는 중복 회원X
+            validateDuplicateMember(member); // 중복 회원 검증
+            memberRepository.save(member);
+            return member.getId();
     }
 
     private void validateDuplicateMember(Member member) {
@@ -40,7 +42,14 @@ public class MemberService {
      * 전체 회원 조회
      */
     public List<Member> findMembers(){
-        return memberRepository.findAll();
+        long start = System.currentTimeMillis();
+        try {
+            return memberRepository.findAll();
+        } finally {
+            long finish = System.currentTimeMillis();
+            long timeMs = finish-start;
+            System.out.println("join = "+timeMs+"ms");
+        }
     }
 
     public Optional<Member> findOne(Long memberID){
